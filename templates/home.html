@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Search movie</h1>
+
+<form method="POST" action="/movie">
+    <input list="movies" name="movie" placeholder="Type movie name...">
+    <input type="submit">
+</form>
+
+<datalist id="movies">
+    {% for title in titles %}
+        <option value="{{ title }}">
+    {% endfor %}
+</datalist>
+
+{% if reco_movies %}
+    <h3>Recommended Movies:</h3>
+    {% for movie in reco_movies %}
+        {{ movie }} <br>
+    {% endfor %}
+{% endif %}
+
+</body>
+</html>
